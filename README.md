@@ -5,15 +5,5 @@
   <p>	Salsabilla Athifah Yonara 22091397054</p>
   <p>	 Adam Zuhruf Ananda Farendra 22091397055 </p>
 
-
-  <p>	 Link Github : </p>
-  <p>  https://github.com/sathipyn/tugasAPIdua10MIB.git </p>
-  <h3>	Dosen Pengampu: </h>
-  <h3>	Andi Iwan Nurhidayat, S.Kom., M.T. </h>
-
-
-  <h3>	PRODI D4 MANAJEMEN INFORMATIKA </h>
-  <h3>	FAKULTAS VOKASI </h>
-  <h3>	UNIVERSITAS NEGERI SURABAYA </h>
-  <h3>	2024 </h>
-</div>
+<p> Hasil Dokumentasi OPENAPI : </p>
+<p> ![alt text] image/APISATU.jpg </p>
