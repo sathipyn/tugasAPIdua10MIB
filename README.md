@@ -1,4 +1,4 @@
-<div align="center">
+<div align="left">
   <h1>	DOKUMENTASI OPEN API </h1>
   <h1>	Kelompok 10 MI B </h1>
   <h2>	Disusun Oleh : </h2>
