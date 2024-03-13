@@ -6,4 +6,5 @@
   <p>	 Adam Zuhruf Ananda Farendra 22091397055 </p>
 
 <p> Hasil Dokumentasi OPENAPI : </p>
-<p> ![alt text] image/APISATU.jpg </p>
+<img src="image/APISATU.jpg">
+<img src="image/APIDUA.jpg">
