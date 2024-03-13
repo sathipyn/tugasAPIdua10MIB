@@ -1,0 +1,449 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Barang Toko RESTful API",
+    "version": "1",
+    "description": "OpenAPI untuk List Barang Toko",
+    "termsOfService": "https://www.BarangToko.com",
+    "contact": {
+      "name": "Barang Toko",
+      "email": "Barang.Toko@gmail.com",
+      "url": "https://www.BarangToko.com"
+    },
+    "license": {
+      "name": "APACHE 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "servers": [
+    {
+      "description": "Barang Toko RESTful API Server",
+      "url": "https://{environment}.BarangToko.com/api/v1",
+      "variables": {
+        "environment": {
+          "description": "Server Environment",
+          "default": "dev",
+          "enum": [
+            "dev",
+            "qa",
+            "prod"
+          ]
+        }
+      }
+    }
+  ],
+  "externalDocs": {
+    "description": "Website Barang Toko",
+    "url": "https://www.Website.com/c/BarangToko"
+  },
+  "paths": {
+    "/BarangToko": {
+      "get": {
+        "security": [
+          {
+            "BarangTokoAuth": []
+          }
+        ],
+        "tags": [
+          "BarangToko"
+        ],
+        "summary": "Get all BarangToko",
+        "description": "Get all active BarangToko by default",
+        "parameters": [
+          {
+            "name": "include_done",
+            "in": "query",
+            "required": false,
+            "description": "Is include done BarangToko",
+            "schema": {
+              "type": "boolean",
+              "nullable": true,
+              "default": false
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Filter BarangToko by name",
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "examples": {
+              "java": {
+                "description": "Example name Java",
+                "value": "Java"
+              },
+              "php": {
+                "description": "Example name PHP",
+                "value": "PHP"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success get all BarangToko",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArrayBarangToko"
+                },
+                "examples": {
+                  "success": {
+                    "description": "Example success get all BarangToko",
+                    "value": [
+                      {
+                        "id": "1",
+                        "name": "Java",
+                        "priority": 3,
+                        "tags": [
+                          "Java",
+                          "Programming"
+                        ]
+                      },
+                      {
+                        "id": "2",
+                        "name": "PHP",
+                        "priority": 5,
+                        "tags": [
+                          "PHP",
+                          "Programming"
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [
+          {
+            "BarangTokoAuth": []
+          }
+        ],
+        "tags": [
+          "BarangToko"
+        ],
+        "summary": "Create new BarangToko",
+        "description": "Create new BarangToko to database",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrUpdateBarangToko"
+              },
+              "examples": {
+                "java": {
+                  "description": "Example create BarangToko Java",
+                  "value": {
+                    "name": "Java",
+                    "priority": 3,
+                    "tags": [
+                      "Java",
+                      "Programming"
+                    ]
+                  }
+                },
+                "php": {
+                  "description": "Example create BarangToko PHP",
+                  "value": {
+                    "name": "PHP",
+                    "priority": 5,
+                    "tags": [
+                      "PHP",
+                      "Programming"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success create BarangToko",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BarangToko"
+                },
+                "examples": {
+                  "java": {
+                    "description": "Success create java BarangToko",
+                    "value": {
+                      "id": "1",
+                      "name": "Java",
+                      "priority": 3,
+                      "tags": [
+                        "Java",
+                        "Programming"
+                      ]
+                    }
+                  },
+                  "php": {
+                    "description": "Success create php BarangToko",
+                    "value": {
+                      "id": "2",
+                      "name": "PHP",
+                      "priority": 5,
+                      "tags": [
+                        "PHP",
+                        "Programming"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [
+          {
+            "BarangTokoAuth": []
+          }
+        ],
+        "tags": [
+          "BarangToko"
+        ],
+        "summary": "Update existing BarangToko",
+        "description": "Update existing BarangToko in database",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BarangTokoId"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrUpdateBarangToko"
+              },
+              "examples": {
+                "java": {
+                  "description": "Example update BarangToko Java",
+                  "value": {
+                    "name": "Updated Java",
+                    "priority": 4,
+                    "tags": [
+                      "Java",
+                      "Programming",
+                      "Updated"
+                    ]
+                  }
+                },
+                "php": {
+                  "description": "Example update BarangToko PHP",
+                  "value": {
+                    "name": "Updated PHP",
+                    "priority": 6,
+                    "tags": [
+                      "PHP",
+                      "Programming",
+                      "Updated"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success update BarangToko",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BarangToko"
+                },
+                "examples": {
+                  "java": {
+                    "description": "Success update java BarangToko",
+                    "value": {
+                      "id": "1",
+                      "name": "Updated Java",
+                      "priority": 4,
+                      "tags": [
+                        "Java",
+                        "Programming",
+                        "Updated"
+                      ]
+                    }
+                  },
+                  "php": {
+                    "description": "Success update php BarangToko",
+                    "value": {
+                      "id": "2",
+                      "name": "Updated PHP",
+                      "priority": 6,
+                      "tags": [
+                        "PHP",
+                        "Programming",
+                        "Updated"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "security": [
+          {
+            "BarangTokoAuth": []
+          }
+        ],
+        "tags": [
+          "BarangToko"
+        ],
+        "summary": "Delete existing BarangToko",
+        "description": "Delete existing BarangToko in database",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BarangTokoId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success delete BarangToko",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "examples": {
+                  "success": {
+                    "description": "Success delete BarangToko",
+                    "value": {
+                      "success": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Failed delete not found BarangToko",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "examples": {
+                  "failed": {
+                    "description": "Failed delete BarangToko",
+                    "value": {
+                      "success": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BarangToko": {
+        "description": "Authentication for BarangToko RESTful API",
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    },
+    "parameters": {
+      "BarangTokoId": {
+        "name": "BarangTokoId",
+        "in": "path",
+        "required": true,
+        "description": "BarangToko id for updated",
+        "schema": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "examples": {
+          "java": {
+            "description": "Sample BarangToko id for Java",
+            "value": "1"
+          },
+          "php": {
+            "description": "Sample BarangToko id for PHP",
+            "value": "2"
+          }
+        }
+      }
+    },
+    "schemas": {
+      "BarangToko": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "number",
+            "format": "int32"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "CreateOrUpdateBarangToko": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "number",
+            "format": "int32"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ArrayBarangToko": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BarangToko"
+        }
+      }
+    }
+  }
+}
