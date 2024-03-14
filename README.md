@@ -5,6 +5,8 @@
   <p>	Salsabilla Athifah Yonara 22091397054</p>
   <p>	 Adam Zuhruf Ananda Farendra 22091397055 </p>
 
+  <p>Link Github : https://github.com/sathipyn/tugasAPIdua10MIB.git </p>
+
 <p> Hasil Dokumentasi OPENAPI : </p>
 <img src="image/APISATU.jpg">
 <img src="image/APIDUA.jpg">
